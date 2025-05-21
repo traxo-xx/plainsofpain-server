@@ -44,7 +44,7 @@ updateOrCreatePlainsofPainServerConfig() {
     cat >${install_path}/plainsofpain_server.json << EOF
 {  
   "serverName":"PlainsofPain Server",
-  "password": "",
+  "password":"",
   "seed":40377,
   "worldId":0,
   "mapId":0,
@@ -52,7 +52,9 @@ updateOrCreatePlainsofPainServerConfig() {
   "worldSize":5,
   "port":7777,
   "queryPort":27016,
-  "maxPlayers":10
+  "maxPlayers":10,
+  "userdir":"",
+  "namespace":""
 }
 EOF
   fi
@@ -97,6 +99,14 @@ EOF
 
   if [[ -n "$SERVER_SLOT_COUNT" ]]; then
     echo "$(jq --argjson maxPlayers "$SERVER_SLOT_COUNT" '.maxPlayers = $maxPlayers' ${install_path}/plainsofpain_server.json)" > ${install_path}/plainsofpain_server.json
+  fi
+
+  if [[ -n "$USERDIR" ]]; then
+    echo "$(jq --arg userdir "$USERDIR" '.userdir = $userdir' ${install_path}/plainsofpain_server.json)" > ${install_path}/plainsofpain_server.json
+  fi
+
+  if [[ -n "$NAMESPACE" ]]; then
+    echo "$(jq --arg namespace "$NAMESPACE" '.namespace = $namespace' ${install_path}/plainsofpain_server.json)" > ${install_path}/plainsofpain_server.json
   fi
 
 }

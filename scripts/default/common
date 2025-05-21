@@ -5,7 +5,7 @@ steamcmd_path=/usr/bin/steamcmd
 steam_app_id=2227360
 plainsofpain_binary_path=PlainsOfPain.x86_64
 savefile_name=3ad85aea
-plainsofpain_world_sizes="3 5 7 9 11"
+plainsofpain_world_sizes="11 21 31 41 51"
 
 # trap SIGUSR1 as it is being used to check
 # for process aliveness when an existing
