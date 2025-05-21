@@ -84,8 +84,8 @@ verifyVariables() {
   fi
 
   if [[ -n "$SERVER_MAP_ID" ]]; then
-    if [[ "$SERVER_MAP_ID" -lt 0 ]] || [[ "$SERVER_MAP_ID" -gt 2 ]]; then
-      error "SERVER_MAP_ID must be between 0 and 2 (actual: $SERVER_MAP_ID)"
+    if [[ "$SERVER_MAP_ID" -lt 0 ]] || [[ "$SERVER_MAP_ID" -gt 0 ]]; then
+      error "SERVER_MAP_ID must be 0 because there is currently only one map available (actual: $SERVER_MAP_ID)"
       exit 1
     fi
   fi

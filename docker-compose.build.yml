@@ -26,3 +26,4 @@ services:
       - PGID=4711
       - UPDATE_CRON=*/30 * * * *
       - log_level=50
+      - NAMESPACE=server-1
