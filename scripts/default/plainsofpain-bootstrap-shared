@@ -49,7 +49,7 @@ updateOrCreatePlainsofPainServerConfig() {
   "worldId":0,
   "mapId":0,
   "difficulty":2,
-  "worldSize":5,
+  "worldSize":31,
   "port":7777,
   "queryPort":27016,
   "maxPlayers":10,

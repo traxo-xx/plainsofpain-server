@@ -129,7 +129,7 @@ services:
       - SERVER_WORLD_ID=0
       - SERVER_DIFFICULTY=2
       - SERVER_MAP_ID=0
-      - SERVER_WORLD_SIZE=5
+      - SERVER_WORLD_SIZE=31
       - SERVER_SLOT_COUNT=10
       - SERVER_PASSWORD=secret
       - UPDATE_CRON=*/30 * * * *
@@ -161,7 +161,7 @@ services:
       - SERVER_WORLD_ID=0
       - SERVER_DIFFICULTY=2
       - SERVER_MAP_ID=0
-      - SERVER_WORLD_SIZE=5
+      - SERVER_WORLD_SIZE=31
       - SERVER_SLOT_COUNT=10
       - SERVER_PASSWORD=secret
       - UPDATE_CRON=*/30 * * * *
