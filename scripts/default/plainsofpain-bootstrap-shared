@@ -47,7 +47,7 @@ updateOrCreatePlainsofPainServerConfig() {
   "password":"",
   "seed":40377,
   "worldId":0,
-  "mapId":0,
+  "mapId":768,
   "difficulty":2,
   "worldSize":31,
   "port":7777,
@@ -99,6 +99,14 @@ EOF
 
   if [[ -n "$SERVER_SLOT_COUNT" ]]; then
     echo "$(jq --argjson maxPlayers "$SERVER_SLOT_COUNT" '.maxPlayers = $maxPlayers' ${install_path}/plainsofpain_server.json)" > ${install_path}/plainsofpain_server.json
+  fi
+
+  if [[ -n "$SERVER_ADMIN_ACCOUNTS" ]]; then
+    echo "$(jq --argjson adminAccountIDs "$SERVER_ADMIN_ACCOUNTS" '.adminAccountIDs = $adminAccountIDs' ${install_path}/plainsofpain_server.json)" > ${install_path}/plainsofpain_server.json
+  fi
+
+  if [[ -n "$SERVER_TTR" ]]; then
+    echo "$(jq --argjson ttr "$SERVER_TTR" '.ttr = $ttr' ${install_path}/plainsofpain_server.json)" > ${install_path}/plainsofpain_server.json
   fi
 
   if [[ -n "$USERDIR" ]]; then

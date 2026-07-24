@@ -21,13 +21,15 @@ Docker image for the game Plains of Pain. The repo is based on the [enshrouded-s
 | `SERVER_SLOT_COUNT`               |          | `10`                | integer (1-200)        | Max allowed concurrent players                                                                                     |     |
 | `SERVER_PORT`                |          | `7777`             | integer               | The game server's port                                                                                |     |
 | `SERVER_QUERYPORT`                |          | `27016`             | integer               | The steam query port for the server                                                                                |     |
+| `SERVER_ADMIN_ACCOUNTS`                |          |            | string               | Determines who can use admin console commands. Multiple steam Account IDs (not Steam IDs) separated by comma. i.e. 457896521,245785                                                                              |     |
+| `SERVER_TTR`                |          | 0             | integer               | Time To Restart (in seconds) automatically saves and quits Dedicated Server application, i.e. 14400 seconds = 4 hours                                                                                |     |
 | `PUID`                            |          | `4711`              | integer               | The UID to run server as (file permission)                                                                         |     |
 | `PGID`                            |          | `4711`              | integer               | The GID to run server as (file permission)                                                                         |     |
 | `UPDATE_CRON`                     |          |                     | string (cron format)  | Update game server files cron (eg. `*/30 * * * *` check for updates every 30 minutes)                              |     |
 | `UPDATE_CHECK_PLAYERS`            |          | `false`             | boolean (true, false) | Should the update check if someone is connected                                                                    |     |
 | `GAME_BRANCH`                     |          | `public`            | string                | Steam branch (eg. testing) of the Plains of Pain server                                                                |     |
 | `STEAMCMD_ARGS`                   |          | `validate`          | string                | Additional steamcmd args for the updater                                                                           |     |
-| `USERDIR`                   |          |     `/home/plainsofpain/.config/unity3d/CobraByteDigital/PlainsOfPain`     | string                | Root folder for game saves                                                                           |     |
+| `USERDIR`                   |          |          | string                | Root folder for game saves                                                                           |     |
 | `NAMESPACE`                   |          |     `main`     | string                | Subfolder of `USERDIR` containing all game saves                                                                           |     |
 
 All environment Variables prefixed with SERVER are the available config.json options
@@ -96,7 +98,7 @@ docker run -d --name plainsofpain \
   -e SERVER_SEED=40377 \
   -e SERVER_WORLD_ID=0 \
   -e SERVER_DIFFICULTY=2 \
-  -e SERVER_MAP_ID=0 \
+  -e SERVER_MAP_ID=768 \
   -e SERVER_WORLD_SIZE=31 \
   -e SERVER_SLOT_COUNT=10 \
   -e SERVER_PASSWORD="secret" \
@@ -128,7 +130,7 @@ services:
       - SERVER_SEED=40377
       - SERVER_WORLD_ID=0
       - SERVER_DIFFICULTY=2
-      - SERVER_MAP_ID=0
+      - SERVER_MAP_ID=768
       - SERVER_WORLD_SIZE=31
       - SERVER_SLOT_COUNT=10
       - SERVER_PASSWORD=secret
@@ -160,7 +162,7 @@ services:
       - SERVER_SEED=40377
       - SERVER_WORLD_ID=0
       - SERVER_DIFFICULTY=2
-      - SERVER_MAP_ID=0
+      - SERVER_MAP_ID=768
       - SERVER_WORLD_SIZE=31
       - SERVER_SLOT_COUNT=10
       - SERVER_PASSWORD=secret
