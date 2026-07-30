@@ -15,7 +15,7 @@ Docker image for the game Plains of Pain. The repo is based on the [enshrouded-s
 | `SERVER_PASSWORD`                 |          |                     | string                | The password for the server                                                                                        |     |
 | `SERVER_SEED`                 |          | `40377`                    | integer                | The server's map seed                                                                                        |     |
 | `SERVER_WORLD_ID`                 |          | `0`                    | integer                | The server's world ID                                                                                        |     |
-| `SERVER_DIFFICULTY`               |          | `2`                 | integer                | The server's difficulty setting. (0 = Tourist, 1 = Rookie, 2 = True Wastelander, 3 = Veteran, 4 = Overlord)                                                                                             |  ️  |
+| `SERVER_DIFFICULTY`               |          | `2`                 | integer                | The server's difficulty setting. (0 = Tourist, 1 = Rookie, 2 = True Wastelander, 3 = Veteran, 4 = Overlord, 255 = [Custom Difficulty[#custom-difficulty]])                                                                                             |  ️  |
 | `SERVER_MAP_ID`                     |          | `768` | integer                | ID of the map that should be used (768 = Wasteland v0.8)                                                                                             |  ️  |
 | `SERVER_WORLD_SIZE`                     |          | `31` | integer                | Size of the server's map (11 = S, 21 = M, 31 = L, 41 = XL, 51 = XXL)                                                                                             |  ️  |
 | `SERVER_SLOT_COUNT`               |          | `10`                | integer (1-200)        | Max allowed concurrent players                                                                                     |     |
@@ -188,7 +188,18 @@ volumes:
   docker compose exec plainsofpain supervisorctl start plainsofpain-force-update
   ```
 
-## Known Issues
+### Custom Difficulty
+
+> [!NOTE]
+> The only documentation I've found about this is a [How To topic](https://discord.com/channels/1037813254765948989/1481759619499036704/1481759619499036704) in the official Plains of Pain Discord. The following instructions are based on that.
+
+1. Set `SERVER_DIFFICULTY` to `255`
+2. In tou `worldfiles` mount there is a file called `info.log` in which you find a value *SteamAccountId* ... If not, locate `<worldfiles>/main/profiles` and there should be a folder with number - that number is *SteamAccountId*
+3. Set `SERVER_ADMIN_ACCOUNTS` to `"123456789"`, where 123456789 is your *SteamAccountId*
+4. After a server started and you connect to it (as a player via standard game), go to Main Menu -> Settings -> Difficulty
+5. (now you see what difficulty is set on server) Just set values you want (it switches difficulty to Custom) and click on **Apply**, that sends custom difficulty to server, where the settings is persisted (and loaded after any future restart)
+
+### Known Issues
 
 * The server doesn't start or the update fails with following error:
   ```
