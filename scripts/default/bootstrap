@@ -77,8 +77,8 @@ EOF
 verifyVariables() {
 
   if [[ -n "$SERVER_DIFFICULTY" ]]; then
-    if [[ "$SERVER_DIFFICULTY" -lt 0 ]] || [[ "$SERVER_DIFFICULTY" -gt 4 ]]; then
-      error "SERVER_DIFFICULTY must be between 0 and 4 (actual: $SERVER_DIFFICULTY)"
+    if [[ "$SERVER_DIFFICULTY" -lt 0 ]] || [[ "$SERVER_DIFFICULTY" -gt 255 ]]; then
+      error "SERVER_DIFFICULTY must be between 0 and 255 (actual: $SERVER_DIFFICULTY)"
       exit 1
     fi
   fi
