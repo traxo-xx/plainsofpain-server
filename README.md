@@ -194,7 +194,7 @@ volumes:
 > The only documentation I've found about this is a [How To topic](https://discord.com/channels/1037813254765948989/1481759619499036704/1481759619499036704) in the official Plains of Pain Discord. The following instructions are based on that.
 
 1. Set `SERVER_DIFFICULTY` to `255`
-2. In tou `worldfiles` mount there is a file called `info.log` in which you find a value *SteamAccountId* ... If not, locate `<worldfiles>/main/profiles` and there should be a folder with number - that number is *SteamAccountId*
+2. In your `worldfiles` mount there is a file called `info.log` in which you can find a value *SteamAccountId* ... If not, locate `<worldfiles>/main/profiles` and there should be a folder with a number - that number is *SteamAccountId*
 3. Set `SERVER_ADMIN_ACCOUNTS` to `"123456789"`, where 123456789 is your *SteamAccountId*
 4. After a server started and you connect to it (as a player via standard game), go to Main Menu -> Settings -> Difficulty
 5. (now you see what difficulty is set on server) Just set values you want (it switches difficulty to Custom) and click on **Apply**, that sends custom difficulty to server, where the settings is persisted (and loaded after any future restart)
